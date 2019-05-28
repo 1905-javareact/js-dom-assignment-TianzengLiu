@@ -98,7 +98,8 @@ function getCustomAttribute() {
 // Put the sum in the <span> element.
 // If values cannot be added, put "Cannot add" in the <span> element?????
 window.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById('num1').addEventListener("change", function() {
+
+let changeHandler = () => {
         let input1 =  document.getElementById("num1").value
         let input2 =  document.getElementById("num2").value
         
@@ -106,7 +107,31 @@ window.addEventListener("DOMContentLoaded", function(event) {
 
         document.getElementById("sum").innerText = sum
 
-    })
+        if (isNaN(sum)) {
+            document.getElementById("sum").innerText = "Cannot add"
+        }
+        //return undefined
+    }
+
+    document.getElementById('num1').addEventListener("change", changeHandler)
+    document.getElementById('num2').addEventListener("change", changeHandler)
+
+    // document.getElementById('num2').addEventListener("change", function() {
+    //     let input1 =  document.getElementById("num1").value
+    //     let input2 =  document.getElementById("num2").value
+        
+    //     sum = parseInt(input1) + parseInt(input2)
+
+    //     document.getElementById("sum").innerText = sum
+
+    //     if ( isNaN(sum)) {
+    //         document.getElementById("sum").innerText = "Cannot add"
+    //     } 
+
+    // })
+
+   
+
 })
 
 
